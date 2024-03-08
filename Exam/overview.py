@@ -40,7 +40,12 @@ st.markdown(banner, unsafe_allow_html=True)
 st.markdown(
     """
     ###
-        
+    #### Diagrams
+    Gå til Diagrams for at se visuelle repræsentationer af den data vi har fundet.
+    #### Genre
+    Under Genre kan du få en anbefaling til høje ratede film af samme valgte genre. 
+    #### User
+    Vælg en user, og få en anbefaling til film baseret på brugerens tidligere ratings.      
     
     ### Group 11
     Tobias Carlsen - cph-tc183@cphbusiness.dk

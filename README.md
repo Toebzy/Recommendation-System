@@ -16,7 +16,7 @@ However, there is no defenitive way to recommend movies perfectly. Users might l
 We therefore decidet to developed a more advanced algorithm, that takes a users similarities and recommends movies based on simalar users ratings. This should give more accuruate recommendations based on the previous theory. 
 
 ## Results
-Our user recommendation function, works by recommending highly rated titles of the same genre. We can get anything meaningful out of this, due to our inability to test it with user surveys. 
+Our user recommendation function, works by recommending highly rated titles of the same genre. We can't get anything meaningful out of this, due to our inability to test it with user surveys. 
 The other recomendation system is more advanced, and works on more than just similar genres. Therefore we can also value the response with an accuracy. 
 ## Streamlit
 To open the Streamlit app open a terminal/console on the Exam folder and type streamlit run overview.py

@@ -20,7 +20,7 @@ We therefore decidet to developed a more advanced algorithm, that takes a users 
 Noget der checker om de har rettighederne til de film der bliver anbefalet
 Han synes det var forståeligt og ligetil.
 Han synes der burde være noget i forhold til popularitet, siden en høj rating ikke altid er særligt underholdende. Godfather med høj rating i sort hvid er svær at anbefale ud fra baseret på rating og genre. 
-Kunne nemt forstå dataen der blev vist. Synes 3 film ikke er nok at gå ud fra. 
+Kunne nemt forstå dataen der blev vist.
 
 ### User 2
 Forklaring på siderne, siden han har glemt det efter diagrammerne er loadet. Mere tekst ud fra diagrammerne der forklarer hvad han kigger på og hvad det er baseret ud fra. 
@@ -35,12 +35,17 @@ Det samme gælder for genrer, hvis man kunne filtrere noget lidt nyere, siden al
 Føles lidt som robotsprog, kunne godt være simplificeret mere eller forklaret mere i dybde. 
 Ville være nice hvis der i stedet for “recommended” ville stå noget som f.ek.s: “Brugere som dig kan godt lide:” 
 
+Ud fra denne feedback har vi lavet opdateringer til vores frontend, og gjort det mere tydeligt for brugeren i form af visualisering. 
+- Tekst ud fra diagrammer
+- Mere læseligt tekst
+- Med mere
 
 ## Results
 Our user recommendation function, works by recommending highly rated titles of the same genre. We can't get anything meaningful out of this, due to our inability to test it with user surveys. 
 The other recomendation system is more advanced, and works on more than just similar genres. Therefore we can also value the response with an accuracy. 
 ## Streamlit
-To open the Streamlit app open a terminal/console on the Exam folder and type streamlit run overview.py
+To open the Streamlit app open a terminal/console on the Exam folder and type "streamlit run Overview.py"
+
 #
 
 Tobias Carlsen - cph-tc183@cphbusiness.dk

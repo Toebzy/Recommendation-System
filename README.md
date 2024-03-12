@@ -19,7 +19,7 @@ We therefore decidet to developed a more advanced algorithm, that takes a users 
 
 ## User Research
 ### User 1
-Han synes det var forståeligt og ligetil.
+Han synes det var forståeligt og ligetil.  
 Kunne nemt forstå dataen der blev vist.
 
 ### User 2

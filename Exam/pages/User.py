@@ -131,11 +131,11 @@ if st.button(":green[Get Recommendations]"):
 
      for result in user_results:
 
-        st.subheader("Likes these movies:")
+        st.subheader("Known positives:")
         for positive in result['known_positives']:
             st.write(f"    {positive}")
 
-        st.subheader("Recommended for this user:")
+        st.subheader("Recommended:")
         for recommended_movie in result['recommended']:
             st.write(f"    {recommended_movie}")
     

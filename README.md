@@ -42,6 +42,7 @@ From this feedback we have made some changes to our frontend prototype in Stream
 - More text in general.  
 - Added the amounts of votes to the movie when recommending through genre.
 - Changed some of the language use.
+- Added more Diagrams for the user to peruse
 
 ## Results
 Our user recommendation function, works by recommending highly rated titles of the same genre. After conducting some user reviews we concluded that our users are satisfied with the recommendations albeit sometimes they feel like the movies are a bit old. 

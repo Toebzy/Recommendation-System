@@ -74,7 +74,7 @@ def get_recommendations(genre, cosine_sim=cosine_sim):
         movie_indices = [i[0] for i in sim_scores]
 
         # Return the top 10 most similar movies
-        movies_with_score = movies[['title', 'genres', 'score']].iloc[movie_indices]
+        movies_with_score = movies[['title', 'genres', 'score', 'vote_count']].iloc[movie_indices]
         filtered_movies = movies_with_score[(movies_with_score['score'] > 0) & movies_with_score['genres'].apply(lambda x: all(genre in x for genre in sorted_genre_list))]
         sorted_movies = filtered_movies.sort_values(by='score', ascending=False)
         return sorted_movies.drop_duplicates(subset='title').head(5)

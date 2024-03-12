@@ -66,12 +66,18 @@ if st.button(":green[See Diagrams]"):
                 average_ratings_by_decade = df.groupby('decade')['average_rating'].mean().reset_index()
                 # Streamlit app
                 st.title('Average Ratings by Decade')
-                st.bar_chart(average_ratings_by_decade.set_index('decade'))
-                
+                fig_decade = px.bar(average_ratings_by_decade, x='decade', y='average_rating')
+                fig_decade.update_layout(xaxis_tickangle=-45)  # Rotate x-axis labels
+                fig_decade.update_xaxes(title_text='Decade') 
+                fig_decade.update_yaxes(title_text='Average Rating') 
+                st.plotly_chart(fig_decade)
+                       
                 result = average_rating_by_genre(mvrt, genre_list)
                 result_df = pd.DataFrame(list(result.items()), columns=['Genre', 'Average Rating'])
                 st.title('Average Ratings by Genre')
-                st.bar_chart(result_df.set_index('Genre'))
+                fig_genre = px.bar(result_df, x='Genre', y='Average Rating')
+                fig_genre.update_layout(xaxis_tickangle=-45)  # Rotate x-axis labels
+                st.plotly_chart(fig_genre)
 if st.button(":blue[EDA]"):
     # st.write(os.getcwd())
     with open("html/eda.html", "r", encoding='utf-8') as f:

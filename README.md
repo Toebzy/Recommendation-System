@@ -6,20 +6,20 @@
 In today’s digital era, users are presented with vast amounts of content and choices across various online sites. Using machine learning, we can create a system that helps customers discover relevant content, by providing individualized recommendations. This way, we help the user avoid information overload, which in turn helps create sales and increases company profits.
 
 ## Choices 
-We had some issues when it came to forming a recommendation. The problem was due to the size of our dataset. Many of the movies had very few or only 1 review. 
-This made it difficult to make an average rating for recommendation. We found several larger datasets, but so large that it brought technical issues. 
-We decided to use the upper 10th quantile of total votes. This let us have 900+ movies with a minimum of 27 votes. 
+We encountered issues with Jupyter Notebook crashing, which we traced back to our large dataset. After conducting research, we discovered that the problem stemmed from the dataset's size, consisting of millions of rows. To address this, we opted to use a smaller version of our dataset. While this meant having less data than desired, we believe that the recommendations we generate remain robust and usable.  
+
+We designed the code to be adaptable for potential future use with a larger dataset. If we acquire software capable of handling larger datasets, the only necessary modification would be updating the file path.  
+
+Additionally, we faced the challenge of deciding which movies to recommend. Many films in our dataset had one or fewer reviews, making it impractical to base recommendations on such limited feedback. To address this, we opted to generate recommendations based on movies in the upper 10th quantile. This criterion ensures that all recommended movies have received at least 27 reviews. While our dataset still contained 100,000 ratings, we had hoped to work with an even larger dataset for more comprehensive results.  
 
 ## Theoretical Foundation
-We needed to decide what to recommend the user, based on existing user data. Based on our dataset, we decided on the WAR (weighted average rating) movie and a genre of your choice. 
+To recommend anything to a user we first needed to decide what variables we would recommend based on. Based on our dataset, we decided on the WAR (weighted average rating) movie and a genre of your choice, we then devoloped a function using NLP and Text Vectorization, checking the cosine simularity and then ranking by WAR to recommend movies. 
 However, there is no defenitive way to recommend movies perfectly. Users might like something more than highly rated movies, since critics and user reviews often dont share the same views on entertainment. 
 We therefore decidet to developed a more advanced algorithm, that takes a users similarities and recommends movies based on simalar users ratings. This should give more accuruate recommendations based on the previous theory. 
 
 ## User Research
 ### User 1
-Noget der checker om de har rettighederne til de film der bliver anbefalet
 Han synes det var forståeligt og ligetil.
-Han synes der burde være noget i forhold til popularitet, siden en høj rating ikke altid er særligt underholdende. Godfather med høj rating i sort hvid er svær at anbefale ud fra baseret på rating og genre. 
 Kunne nemt forstå dataen der blev vist.
 
 ### User 2
@@ -35,15 +35,19 @@ Det samme gælder for genrer, hvis man kunne filtrere noget lidt nyere, siden al
 Føles lidt som robotsprog, kunne godt være simplificeret mere eller forklaret mere i dybde. 
 Ville være nice hvis der i stedet for “recommended” ville stå noget som f.ek.s: “Brugere som dig kan godt lide:” 
 
-Ud fra denne feedback har vi lavet opdateringer til vores frontend, og gjort det mere tydeligt for brugeren i form af visualisering. 
-From this feedback we have made some changes to our frontend prototype in streamlt, made it easier for the user to navigate and learn we made the following changes:  
-- More readable text next to the diagrams
-- More text in genreal
-- Med mere
+### Fixes done after user review 
+From this feedback we have made some changes to our frontend prototype in streamlt, made it easier for the user to navigate and learn. We made the following changes:  
+- More readable text next to the diagrams.  
+- More text in genreal.  
+- Added the amounts of votes to the movie when recommending through genre.
+- Changed some of the language use.
 
 ## Results
-Our user recommendation function, works by recommending highly rated titles of the same genre. We can't get anything meaningful out of this, due to our inability to test it with user surveys. 
-The other recomendation system is more advanced, and works on more than just similar genres. Therefore we can also value the response with an accuracy. 
+Our user recommendation function, works by recommending highly rated titles of the same genre. After conducting some user reviews we concluded that our users are satisfied with the recommendations albeit sometimes they feel like the movies are a bit old. 
+The other recomendation system is more advanced, and works on more than just similar genres. Therefore we can also value the response with an accuracy. the low MSE we get is caused by us being forced to use smaller data sizes than we would have liked to. 
+
+If this project was scaled up in size, we feel there would be a chance that it could help users get a good movie recommendation without being overwhelmed by the infinite choices the vast internet supplies them with. We also feel like we have created a basic version of a system a streaming company would be able to use to recommend movies to other users based on their userbase, thus helping them keep their customers with them, while at the same time being satisfied with the service.  
+
 ## Streamlit
 To open the Streamlit app open a terminal/console on the Exam folder and type "streamlit run Overview.py"
 

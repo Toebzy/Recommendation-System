@@ -11,7 +11,7 @@ This made it difficult to make an average rating for recommendation. We found se
 We decided to use the upper 10th quantile of total votes. This let us have 900+ movies with a minimum of 27 votes. 
 
 ## Theoretical Foundation
-We needed to decide what to recommend the user, based on existing user data. Based on our dataset, this came to be the average of rating per movie based on your liked genres. 
+We needed to decide what to recommend the user, based on existing user data. Based on our dataset, we decided on the WAR (weighted average rating) movie and a genre of your choice. 
 However, there is no defenitive way to recommend movies perfectly. Users might like something more than highly rated movies, since critics and user reviews often dont share the same views on entertainment. 
 We therefore decidet to developed a more advanced algorithm, that takes a users similarities and recommends movies based on simalar users ratings. This should give more accuruate recommendations based on the previous theory. 
 
@@ -36,8 +36,9 @@ Føles lidt som robotsprog, kunne godt være simplificeret mere eller forklaret 
 Ville være nice hvis der i stedet for “recommended” ville stå noget som f.ek.s: “Brugere som dig kan godt lide:” 
 
 Ud fra denne feedback har vi lavet opdateringer til vores frontend, og gjort det mere tydeligt for brugeren i form af visualisering. 
-- Tekst ud fra diagrammer
-- Mere læseligt tekst
+From this feedback we have made some changes to our frontend prototype in streamlt, made it easier for the user to navigate and learn we made the following changes:  
+- More readable text next to the diagrams
+- More text in genreal
 - Med mere
 
 ## Results

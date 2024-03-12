@@ -5,13 +5,13 @@ import random
 import webbrowser
 import io
 from io import StringIO, BytesIO
-
+import matplotlib.pyplot as plt
 from urllib.error import URLError
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import plotly.io as pio
-
+from PIL import Image
 import streamlit.components.v1 as components
 from streamlit.components.v1 import html
 
@@ -30,6 +30,7 @@ st.sidebar.header("Diagrams", divider='rainbow')
 df_q = pd.read_csv('./q_movies.csv', index_col=None, na_values=['NA'])
 df_y = pd.read_csv('./year.csv', index_col=None, na_values=['NA'])
 df = pd.merge(df_q, df_y[['movieId', 'year_released', 'decade']], on='movieId', how='left')
+unique_genres_movies = pd.read_csv('./unique_genres_movies.csv', index_col=None, na_values=['NA'])
 mvrt = pd.read_csv('./mvrt.csv', index_col=None, na_values=['NA'])
 genre_list = ['Drama', 'Comedy', 'Action', 'Thriller', 'Adventure', 'Romance',
                'Sci-Fi', 'Crime', 'Fantasy', 'Children', 'Mystery', 'Horror',
@@ -74,10 +75,34 @@ if st.button(":green[See Diagrams]"):
                        
                 result = average_rating_by_genre(mvrt, genre_list)
                 result_df = pd.DataFrame(list(result.items()), columns=['Genre', 'Average Rating'])
+    
                 st.title('Average Ratings by Genre')
                 fig_genre = px.bar(result_df, x='Genre', y='Average Rating')
                 fig_genre.update_layout(xaxis_tickangle=-45)  # Rotate x-axis labels
                 st.plotly_chart(fig_genre)
+
+                st.title('Ratings count')
+                fig_rating_count = px.histogram(mvrt, x='rating', nbins=20)
+                fig_rating_count.update_traces(marker_line_color='black', marker_line_width=1)
+                st.plotly_chart(fig_rating_count)
+            
+                st.title('Genre Distribution')
+
+                fig_genre_count = px.bar(unique_genres_movies, x='index', y='count')
+                fig_genre_count.update_layout(xaxis_tickangle=-45)
+                st.plotly_chart(fig_genre_count)
+
+                st.title('Average Rating Count')
+                fig_rating_count = px.histogram(df_q, x='average_rating', nbins=20)
+                fig_rating_count.update_traces(marker_line_color='black', marker_line_width=1)
+                st.plotly_chart(fig_rating_count)
+
+                image = Image.open("./percentage_genre_year.png")  # Replace with the path to your image file
+                st.title('Percentage of genres by 10 years')
+                # Display the image
+                st.image(image, caption='', use_column_width=True)
+
+    
 if st.button(":blue[EDA]"):
     # st.write(os.getcwd())
     with open("html/eda.html", "r", encoding='utf-8') as f:

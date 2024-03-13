@@ -52,14 +52,7 @@ user_movie_matrix = mvrt_train.pivot_table(index='userId', columns='movieId', va
 user_movie_array = user_movie_matrix.to_numpy()
 train_data, test_data = train_test_split(user_movie_array, test_size=0.2, random_state=42)
 data = train_data
-
-def viz2():
-
-    x = int(st.number_input("Choose a userid 1-487", format="%f"))
-    return x
-    
-
-
+   
 class CollaborativeFilteringRecommender:
     def __init__(self, n_neighbors=5):
         self.n_neighbors = n_neighbors
@@ -122,9 +115,9 @@ def predict_for_user(user_indices, mvrt, recommendations):
 tab = ''
 # tab = '../data/shopping-data.csv'
 
-
-x = viz2()
-if st.button(":green[Get Recommendations]"):
+x = int(st.number_input("Choose a userid 1-487", format="%f"))
+  
+if st.button(":green[Get Recommendations]") or x:
      user_indices = [x]
      recommendations = recommender.predict(user_indices, data)
      user_results = predict_for_user(user_indices, mvrt, recommendations)

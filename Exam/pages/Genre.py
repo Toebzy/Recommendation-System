@@ -37,10 +37,6 @@ st.set_page_config(page_title="BI Exam", page_icon="📊")
 
 st.title("Recommend movies by genre")
 st.sidebar.header("Recommend movies by genre", divider='rainbow')
-
-def viz2():
-        x = st.text_input("Enter Genre. If more than one genre is wanted, seperate genres by |")
-        return x
     
 movies = pd.read_csv('./q_movies.csv', index_col=None, na_values=['NA'])
 df = pd.read_csv('./movies.csv', index_col=None, na_values=['NA'])
@@ -85,10 +81,16 @@ tab = ''
 # tab = '../data/shopping-data.csv'
 
 
-x = viz2()
-if st.button(":green[Get Recommendations]"):
-            st.subheader("We Recommend")
-            st.write(get_recommendations(x))
+genre_input = st.text_input("Enter Genre. If more than one genre is wanted, separate genres by |")
+
+def update_recommendations(genre_input):
+    if genre_input:
+        recommendations = get_recommendations(genre_input)
+        st.subheader("We Recommend")
+        st.write(recommendations)
+ 
+if st.button(":green[Get Recommendations]") or genre_input:
+    update_recommendations(genre_input)
 if st.button(":green[See all Genres]"):
             st.subheader("Genres")
             st.write(

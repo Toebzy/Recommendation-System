@@ -45,7 +45,7 @@ From this feedback we have made some changes to our frontend prototype in Stream
 - Added more Diagrams for the user to peruse
 
 ### Hit Ratio  
-The Hit Ratio is a measure of the system's ability to recommend items that the user actually interacts with or likes. Had our project ever gone into the real world where we could see what users clicked what recommendations, we would further be able to test our recommendation system by calculating users that click a recommendation over total number of users.
+The Hit Ratio is a measure of the system's ability to recommend items that the user actually interacts with or likes. Had our project ever gone into the real world where we could see which users clicked what recommendations, we would be able to test our recommendation system further by calculating users that click a recommendation over total number of users.
 
 ### Precision  
 Precision is a measure of the accuracy of the recommended items. It focuses on the proportion of correctly recommended items among all the recommended items. This test would have shown a more precise measure of our recommendation system, as it not only tests if we got one recommendation right, but it tests how many of our recommendation are positive (the user liked/clicked it) in all of the recommended movies. the value is between 0 - 1 and the closer we are to 1 the better. it calculates it by taking true positives over true positives - false positives (recommendation the user did not interact with)

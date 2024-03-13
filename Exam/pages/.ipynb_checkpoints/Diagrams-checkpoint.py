@@ -92,6 +92,10 @@ if st.button(":green[See Diagrams]"):
                 fig_genre_count.update_layout(xaxis_tickangle=-45)
                 st.plotly_chart(fig_genre_count)
 
+                image = Image.open("./piechart.png")
+                # Display the image
+                st.image(image, caption='', use_column_width=True)
+
                 st.title('Average Rating Count')
                 fig_rating_count = px.histogram(df_q, x='average_rating', nbins=20)
                 fig_rating_count.update_traces(marker_line_color='black', marker_line_width=1)
@@ -102,6 +106,10 @@ if st.button(":green[See Diagrams]"):
                 # Display the image
                 st.image(image, caption='', use_column_width=True)
 
+                image = Image.open("./scatterplot.png")
+                st.title('Relation between Vote Count and Average Rating')
+                # Display the image
+                st.image(image, caption='', use_column_width=True)
     
 if st.button(":blue[EDA]"):
     # st.write(os.getcwd())

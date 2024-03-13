@@ -50,12 +50,13 @@ cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
 indices = pd.Series(movies.index, index=movies['genres']).drop_duplicates()
 
 def get_recommendations(genre, cosine_sim=cosine_sim):
+        genre = genre.lower()
         # Get the indices of movies with the specified genre
         genre_list = genre.split('|')
         sorted_genre_list = sorted(genre_list)
         separator = '|'
         genre = separator.join(sorted_genre_list)
-        genre_indices = indices[indices.index.str.contains(genre, case=False)]
+        genre_indices = indices[indices.index.str.lower().str.contains(genre, case=False)]
 
         # Initialize an empty list to store similarity scores
         sim_scores = []
@@ -75,7 +76,7 @@ def get_recommendations(genre, cosine_sim=cosine_sim):
 
         # Return the top 10 most similar movies
         movies_with_score = movies[['title', 'genres', 'score', 'vote_count']].iloc[movie_indices]
-        filtered_movies = movies_with_score[(movies_with_score['score'] > 0) & movies_with_score['genres'].apply(lambda x: all(genre in x for genre in sorted_genre_list))]
+        filtered_movies = movies_with_score[(movies_with_score['score'] > 0) & movies_with_score['genres'].apply(lambda x: all(genre in x.lower() for genre in sorted_genre_list))]
         sorted_movies = filtered_movies.sort_values(by='score', ascending=False)
         return sorted_movies.drop_duplicates(subset='title').head(5)
 

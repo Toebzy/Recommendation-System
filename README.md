@@ -34,7 +34,7 @@ Diagram texten er svær at læse, siden det står lodret. Ville være rart hvis 
 Det er nemt og overskueligt at læse. Det kunne være rart at vide hvor mange ratings gennemsnittet er baseret på. Det kunne være rart at kunne være mere præcist med årstal, så man f.eks. kan se hvad der er hip nutildags med måneder osv. 
 Det samme gælder for genrer, hvis man kunne filtrere noget lidt nyere, siden alt der er højt rated også er gammelt. 
 Føles lidt som robotsprog, kunne godt være simplificeret mere eller forklaret mere i dybde. 
-Ville være nice hvis der i stedet for “recommended” ville stå noget som f.eks: “Brugere som dig kan godt lide:” 
+Ville være nice hvis der i stedet for “recommended” ville stå noget som f.eks: “Brugere som dig kan godt lide:”.
 
 ### Fixes done after user review 
 From this feedback we have made some changes to our frontend prototype in Streamlit, made it easier for the user to navigate and learn. We made the following changes:  
@@ -42,13 +42,13 @@ From this feedback we have made some changes to our frontend prototype in Stream
 - More text in general.  
 - Added the amounts of votes to the movie when recommending through genre.
 - Changed some of the language use.
-- Added more Diagrams for the user to peruse
+- Added more Diagrams for the user to peruse.
 
 ### Hit Ratio  
 The Hit Ratio is a measure of the system's ability to recommend items that the user actually interacts with or likes. Had our project ever gone into the real world where we could see which users clicked what recommendations, we would be able to test our recommendation system further by calculating users that click a recommendation over total number of users.
 
 ### Precision  
-Precision is a measure of the accuracy of the recommended items. It focuses on the proportion of correctly recommended items among all the recommended items. This test would have shown a more precise measure of our recommendation system, as it not only tests if we got one recommendation right, but it tests how many of our recommendation are positive (the user liked/clicked it) in all of the recommended movies. the value is between 0 - 1 and the closer we are to 1 the better. it calculates it by taking true positives over true positives - false positives (recommendation the user did not interact with)
+Precision is a measure of the accuracy of the recommended items. It focuses on the proportion of correctly recommended items among all the recommended items. This test would have shown a more precise measure of our recommendation system, as it not only tests if we got one recommendation right, but it tests how many of our recommendation are positive (the user liked/clicked it) in all of the recommended movies. the value is between 0 - 1 and the closer we are to 1 the better. It calculates it by taking true positives over true positives - false positives (recommendation the user did not interact with).
 
 ## Results
 Our user recommendation function, works by recommending highly rated titles of the same genre. After conducting some user reviews we concluded that our users are satisfied with the recommendations albeit sometimes they feel like the movies are a bit old. 
@@ -57,7 +57,7 @@ The other recommendation system is more advanced, and works on more than just si
 If this project was scaled up in size, we feel there would be a chance that it could help users get a good movie recommendation without being overwhelmed by the infinite choices the vast internet supplies them with. We also feel like we have created a basic version of a system a streaming company would be able to use to recommend movies to other users based on their user base, thus helping them keep their customers with them, while at the same time being satisfied with the service.  
 
 ## Streamlit
-To open the Streamlit app open a terminal/console on the Exam folder and type "streamlit run Overview.py"
+To open the Streamlit app open a terminal/console on the Exam folder and type "streamlit run Overview.py".
 
 ---
 

@@ -11,12 +11,16 @@ We encountered issues with Jupyter Notebook crashing, which we traced back to ou
 
 We designed the code to be adaptable for potential future use with a larger dataset. If we acquire software capable of handling larger datasets, the only necessary modification would be updating the file path.  
 
-Additionally, we faced the challenge of deciding which movies to recommend. Many films in our dataset had one or fewer reviews, making it impractical to base recommendations on such limited feedback. To address this, we opted to generate recommendations based on movies in the upper 10th quantile. This criterion ensures that all recommended movies have received at least 27 reviews. While our dataset still contained 100,000 ratings, we had hoped to work with an even larger dataset for more comprehensive results.  
+Additionally, we faced the challenge with our content based recommender of deciding which movies to recommend. Many films in our dataset had one or fewer reviews, making it impractical to base recommendations on such limited feedback. To address this, we opted to generate recommendations based on movies in the upper 10th quantile. This criterion ensures that all recommended movies have received at least 27 reviews. While our dataset still contained 100,000 ratings, we had hoped to work with an even larger dataset for more comprehensive results.  
+
+For our collaborative filtering system we used a sparse matrix and figured this could be throwing off recommendations and therefore created another collaborative filtering system using singular value decomposition to decompose the user-item matrix since SVD is less sensitive to sparse data
+
+We originally wanted to create a hybrid system between content-based and collaborative filtering using gradient descent and matrix factorization, but Jupyter Notebook ran into memory issues and was unable to run it.
 
 ## Theoretical Foundation
-To recommend anything to a user we first needed to decide what variables we would recommend based on. Based on our dataset, we decided on the WAR (weighted average rating) movie and a genre of your choice, we then developed a function using NLP and Text Vectorization, checking the cosine similarity and then ranking by WAR to recommend movies. 
-However, there is no definitive way to recommend movies perfectly. Users might like something more than highly rated movies, since critics and user reviews often don't share the same views on entertainment. 
-We therefore decided to develop a more advanced algorithm, that takes a user's similarities and recommends movies based on similar users' ratings. This should give more accurate recommendations based on the previous theory. 
+There are many different types of recommendation systems and we decided to create two different types, content-based and collaborative filtering.
+Four our content-based system we first needed to decide what variables we would recommend based on. Based on our dataset, we decided on the WAR (weighted average rating) movie and a genre of your choice, we then developed a function using NLP and Text Vectorization, checking the cosine similarity and then ranking by WAR to recommend movies. 
+With content-based systems the main problem you run into is that you don't get to show the user something different, the recommendation will always be based on what we know the user likes and means you end up recommending a lot of similar items. This is why we decided to also make a collaborative filtering system, where we find users that are similar to our user and make recommendations based on the WAR of movies based on the most similar users ratings. This was done by creating a user-item matrix and utilizing cosine similarity to create a similarity matrix between users. 
 
 ## User Research
 ### User 1
@@ -51,8 +55,8 @@ The Hit Ratio is a measure of the system's ability to recommend items that the u
 Precision is a measure of the accuracy of the recommended items. It focuses on the proportion of correctly recommended items among all the recommended items. This test would have shown a more precise measure of our recommendation system, as it not only tests if we got one recommendation right, but it tests how many of our recommendation are positive (the user liked/clicked it) in all of the recommended movies. the value is between 0 - 1 and the closer we are to 1 the better. It calculates it by taking true positives over true positives - false positives (recommendation the user did not interact with).
 
 ## Results
-Our user recommendation function, works by recommending highly rated titles of the same genre. After conducting some user reviews we concluded that our users are satisfied with the recommendations albeit sometimes they feel like the movies are a bit old. 
-The other recommendation system is more advanced, and works on more than just similar genres. Therefore we can also value the response with an accuracy. The low MSE we get is caused by us being forced to use smaller data sizes than we would have liked to. 
+Our content-based recommendation function, works by recommending highly rated titles of the same genre. After conducting some user reviews we concluded that our users are satisfied with the recommendations albeit sometimes they feel like the movies are a bit old. 
+Our collaborative filtering systems works on more than just similar genres, it makes a user similarity matrix and then calculates weighted average ratings from similar users. We decided to use SVD to decompose the user-item matrix used to create the similarity matrix, since SVD handles sparse matrices well and is less sensitive to sparse data, giving us a collaborative filtering system that is more scalable and suffers less from the "cold start" problem.
 
 If this project was scaled up in size, we feel there would be a chance that it could help users get a good movie recommendation without being overwhelmed by the infinite choices the vast internet supplies them with. We also feel like we have created a basic version of a system a streaming company would be able to use to recommend movies to other users based on their user base, thus helping them keep their customers with them, while at the same time being satisfied with the service.  
 
